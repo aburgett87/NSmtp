@@ -7,5 +7,8 @@ configuration:
   - Debug
   - Release
 
+build:
+  project: NSmtp.sln
+
 before_build:
   - nuget restore
