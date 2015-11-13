@@ -13,7 +13,6 @@ namespace NSmtpUnitTests
     public class SmtpCommandExecutorTest
     {
         Mock<ICommandProcessor> _commandProcessor = new Mock<ICommandProcessor>();
-        Mock<IMailInfo> _mailInfo = new Mock<IMailInfo>();
 
         [SetUp]
         public void SetUp()
@@ -22,7 +21,7 @@ namespace NSmtpUnitTests
         }
 
         [Test]
-        public void CanSendHello()
+        public void CanExecuteCommands()
         {
             var commandList = new List<ICommand>
             {
@@ -33,8 +32,8 @@ namespace NSmtpUnitTests
             _commandProcessor.Setup(cmd => cmd.Process(It.IsAny<HelloCommand>())).Returns(new OkResponse("from Moq"));
             _commandProcessor.Setup(cmd => cmd.Process(It.IsAny<MailFromCommand>())).Returns(new OkResponse("From Added"));
 
-            var connectionSetup = new SmtpCommandExecutor(_commandProcessor.Object, commandList);
-            var response = connectionSetup.Execute();
+            var connectionSetup = new SmtpCommandExecutor(_commandProcessor.Object);
+            var response = connectionSetup.Execute(commandList);
             Assert.That(response.ResponseCode, Is.EqualTo(SmtpResponseCode.OK));
             Assert.That(response.ResponseText, Is.EqualTo("From Added"));
             _commandProcessor.Verify(cmd => cmd.Process(It.IsAny<HelloCommand>()), Times.Once);
