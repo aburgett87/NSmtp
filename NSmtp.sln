@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSmtp", "NSmtp\NSmtp.csproj", "{0A031FEE-6A73-4416-8CE9-03F6F3F45823}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSmtpUnitTests", "NSmtpUnitTests\NSmtpUnitTests.csproj", "{11F19CB8-5A45-4BF1-9FEA-09EE3B719B3D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2C67EAEF-A9AF-42D1-B6E6-9D7B6B89CCD6}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A031FEE-6A73-4416-8CE9-03F6F3F45823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A031FEE-6A73-4416-8CE9-03F6F3F45823}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A031FEE-6A73-4416-8CE9-03F6F3F45823}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A031FEE-6A73-4416-8CE9-03F6F3F45823}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11F19CB8-5A45-4BF1-9FEA-09EE3B719B3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11F19CB8-5A45-4BF1-9FEA-09EE3B719B3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11F19CB8-5A45-4BF1-9FEA-09EE3B719B3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11F19CB8-5A45-4BF1-9FEA-09EE3B719B3D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
