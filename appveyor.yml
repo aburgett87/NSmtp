@@ -17,6 +17,7 @@ build:
 before_build:
   - nuget restore .\NSmtp.sln
 
+test_script:
 - ps: >-
   coverage_report.bat Release
 
