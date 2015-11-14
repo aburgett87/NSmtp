@@ -1,5 +1,9 @@
 version: 1.0.{build}
 
+environment:
+  COVERALLS_REPO_TOKEN:
+    secure: RtkwMr7BE6KI9HbNOVIVAQHWAPHVxKL5XjMpe2TM9gydlEWMfAhgsrp4yOEGzeiC
+
 platform:
   - Any CPU
 
@@ -11,4 +15,14 @@ build:
   project: NSmtp.sln
 
 before_build:
-  - nuget restore
+  - nuget restore .\NSmtp.sln
+
+- ps: >-
+  coverage_report.bat Release
+
+  $coveralls = (Resolve-Path "packages/coveralls.net.*/tools/csmacnz.coveralls.exe").ToString()
+            
+  $env:APPVEYOR_BUILD_NUMBER
+                    
+  & $coveralls --opencover -i GeneratedReports\TestResult.xml --repoToken $env:COVERALLS_REPO_TOKEN --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_BUILD_NUMBER --serviceName appveyor
+

@@ -1,7 +1,6 @@
 @ECHO OFF
 SETLOCAL
 IF [%1] == [] (SET CONFIGURATION=Release) ELSE (SET CONFIGURATION=%1)
-IF [%2] == [] (SET PLATFORM=x64) ELSE (SET PLATFORM=%2)
 REM Create a 'GeneratedReports' folder if it does not exist
 if not exist "%~dp0\GeneratedReports" mkdir "%~dp0\GeneratedReports"
 
