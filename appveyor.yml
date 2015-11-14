@@ -8,7 +8,6 @@ platform:
   - Any CPU
 
 configuration:
-  - Debug
   - Release
 
 build:
