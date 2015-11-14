@@ -19,7 +19,7 @@ before_build:
 
 test_script:
 - ps: >-
-    coverage_report.bat Release
+    & .\coverage_report.bat Release
 
     $coveralls = (Resolve-Path "packages/coveralls.net.*/tools/csmacnz.coveralls.exe").ToString()
 
