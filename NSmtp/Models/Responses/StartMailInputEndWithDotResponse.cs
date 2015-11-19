@@ -1,17 +1,17 @@
 ﻿using NSmtp.Enums;
 
-namespace NSmtp.Models
+namespace NSmtp.Models.Responses
 {
-    public class OkResponse : IResponse
+    public class StartMailInputEndWithDotResponse : IResponse
     {
-        public OkResponse(string responseText)
+        public StartMailInputEndWithDotResponse(string responseText)
         {
             ResponseText = responseText;
         }
 
         public SmtpResponseCode ResponseCode
         {
-            get { return SmtpResponseCode.OK; }
+            get { return SmtpResponseCode.StartMailInputEndWithDot; }
         }
 
         public string ResponseText

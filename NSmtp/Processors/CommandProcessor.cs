@@ -1,6 +1,8 @@
-﻿using NSmtp.Models;
+﻿using NSmtp.Models.Responses;
+using NSmtp.Models.Commands;
 using NSmtp.Enums;
 using NSmtp.Parsers;
+using System;
 
 namespace NSmtp.Processors
 {
@@ -14,10 +16,19 @@ namespace NSmtp.Processors
             _streamReaderWriter = streamReaderWriter;
             _responseParser = responseParser;
         }
+
         public IResponse Process(ICommand command)
         {
-            _streamReaderWriter.Writer.WriteLine(command.Command + " " + command.Argument);
+            _streamReaderWriter.Writer.WriteLine(CreateCommandString(command));
             return _responseParser.Parse(_streamReaderWriter.Reader.ReadLine());
+        }
+
+        private string CreateCommandString(ICommand command) //make a dependency?
+        {
+            string commandString = command.Command;
+            if (!String.IsNullOrWhiteSpace(command.Argument))
+                commandString += " " + command.Argument;
+            return commandString;
         }
     }
 }

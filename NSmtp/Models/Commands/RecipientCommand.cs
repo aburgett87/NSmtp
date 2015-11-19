@@ -1,6 +1,6 @@
 ﻿using NSmtp;
 
-namespace NSmtp.Models
+namespace NSmtp.Models.Commands
 {
     public class RecipientCommand: ICommand
     {

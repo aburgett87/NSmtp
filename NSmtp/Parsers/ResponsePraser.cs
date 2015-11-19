@@ -1,4 +1,4 @@
-﻿using NSmtp.Models;
+﻿using NSmtp.Models.Responses;
 
 namespace NSmtp.Parsers
 {

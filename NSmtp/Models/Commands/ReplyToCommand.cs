@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NSmtp.Models
+namespace NSmtp.Models.Commands
 {
-    public class MailFromCommand : ICommand
+    public class ReplyToCommand : ICommand
     {
-        public MailFromCommand(string fromList)
+        public ReplyToCommand(string text)
         {
-            Argument = fromList;
+            Argument = text;
         }
 
         public string Command
         {
-            get { return SmtpCommands.MailFrom; }
+            get { return SmtpCommands.ReplyTo; }
         }
 
         public string Argument

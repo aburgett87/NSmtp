@@ -1,5 +1,5 @@
 ﻿using System;
-using NSmtp.Models;
+using NSmtp.Models.Responses;
 using NSmtp.Enums;
 
 namespace NSmtp.Parsers
@@ -13,6 +13,16 @@ namespace NSmtp.Parsers
             {
                 case SmtpResponseCode.OK:
                     return new OkResponse(text);
+                case SmtpResponseCode.ServiceReady:
+                    return new ServiceReadyResponse(text);
+                case SmtpResponseCode.BadSequenceOfCommands:
+                    return new BadSequenceOfCommandsResponse(text);
+                case SmtpResponseCode.StartMailInputEndWithDot:
+                    return new StartMailInputEndWithDotResponse(text);
+                case SmtpResponseCode.ClosingTransmissionChannel:
+                    return new ClosingTransmissionChannelResponse(text);
+                case SmtpResponseCode.SyntaxErrorCommandUnrecognised:
+                    return new SyntaxErrorCommandUnrecognisedResponse(text);
                 default:
                     throw new ArgumentOutOfRangeException("Reponse code invalid");
             }

@@ -1,6 +1,6 @@
 ﻿using NSmtp.Enums;
 
-namespace NSmtp.Models
+namespace NSmtp.Models.Responses
 {
     public interface IResponse
     {

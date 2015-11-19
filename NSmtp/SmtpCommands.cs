@@ -8,42 +8,56 @@ namespace NSmtp
 {
     internal static class SmtpCommands
     {
-        internal static readonly string Auth = "AUTH ";
+        internal const string Auth = "AUTH";
 
-        internal static readonly string CRLF = "\r\n";
+        internal const string Data = "DATA";
 
-        internal static readonly string Data = "DATA\r\n";
+        internal const string DataStop = ".";
 
-        internal static readonly string DataStop = "\r\n.\r\n";
+        internal const string EHello = "EHLO";
 
-        internal static readonly string EHello = "EHLO ";
+        internal const string Expand = "EXPN";
 
-        internal static readonly string Expand = "EXPN ";
+        internal const string Hello = "HELO";
 
-        internal static readonly string Hello = "HELO ";
+        internal const string Help = "HELP";
 
-        internal static readonly string Help = "HELP";
+        internal const string MailFrom = "MAIL FROM:";
 
-        internal static readonly string MailFrom = "MAIL FROM:";
+        internal const string Noop = "NOOP";
 
-        internal static readonly string Noop = "NOOP\r\n";
+        internal const string Quit = "QUIT";
 
-        internal static readonly string Quit = "QUIT\r\n";
+        internal const string Recipient = "RCPT TO:";
 
-        internal static readonly string Recipient = "RCPT TO:";
+        internal const string Reset = "RSET";
 
-        internal static readonly string Reset = "RSET\r\n";
+        internal const string Send = "SEND FROM:";
 
-        internal static readonly string Send = "SEND FROM:";
+        internal const string SendAndMail = "SAML FROM:";
 
-        internal static readonly string SendAndMail = "SAML FROM:";
+        internal const string SendOrMail = "SOML FROM:";
 
-        internal static readonly string SendOrMail = "SOML FROM:";
+        internal const string Turn = "TURN";
 
-        internal static readonly string Turn = "TURN\r\n";
+        internal const string Verify = "VRFY ";
 
-        internal static readonly string Verify = "VRFY ";
+        internal const string StartTls = "STARTTLS";
 
-        internal static readonly string StartTls = "STARTTLS";
+        internal const string From = "FROM: ";
+
+        internal const string To = "TO: ";
+
+        internal const string Cc = "CC: ";
+
+        internal const string Bcc = "BCC: ";
+
+        internal const string ReplyTo = "REPLY-TO: ";
+
+        internal const string Subject = "SUBJECT: ";
+
+        internal const string Date = "DATE: ";
+
+        internal const string Empty = "";
     }
 }

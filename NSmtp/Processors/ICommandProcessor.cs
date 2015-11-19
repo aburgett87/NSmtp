@@ -1,4 +1,5 @@
-﻿using NSmtp.Models;
+﻿using NSmtp.Models.Responses;
+using NSmtp.Models.Commands;
 
 namespace NSmtp.Processors
 {

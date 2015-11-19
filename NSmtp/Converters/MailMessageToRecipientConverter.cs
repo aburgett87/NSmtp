@@ -1,4 +1,4 @@
-﻿using NSmtp.Models;
+﻿using NSmtp.Models.Commands;
 using System.Net.Mail;
 using System.Collections.Generic;
 

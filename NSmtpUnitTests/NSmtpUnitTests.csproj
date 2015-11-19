@@ -63,9 +63,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandListCreatorTest.cs" />
+    <Compile Include="ConnectionEngineTest.cs" />
     <Compile Include="MailMessageToRecipientConverterTests.cs" />
     <Compile Include="SmtpCommandExecutorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StreamReaderWriterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
