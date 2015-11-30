@@ -4,21 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NSmtp.Models.Commands
+namespace NSmtp.Models.DataFields
 {
-    public class BodyCommand : ICommand
+    public class BodyDataField : IDataField
     {
-        public BodyCommand(string text)
+        public BodyDataField(string text)
         {
-            Argument = text;
+            Content = text;
         }
 
-        public string Command
+        public string Heading
         {
             get { return String.Empty; }
         }
 
-        public string Argument
+        public string Content
         {
             get;
             private set;

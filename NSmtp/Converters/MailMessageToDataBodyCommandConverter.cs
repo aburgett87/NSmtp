@@ -1,4 +1,5 @@
 ﻿using NSmtp.Models.Commands;
+using NSmtp.Models.DataFields;
 using System.Net.Mail;
 using System.Collections.Generic;
 using System;
@@ -9,36 +10,29 @@ namespace NSmtp.Converters
     {
         public DataBodyCommand Convert(MailMessage mailMessage)
         {
-            var headers = "";
-
-            foreach(var key in mailMessage.Headers.AllKeys)
+            var dataFieldList = new List<IDataField>
             {
-                headers += key + ": " + mailMessage.Headers[key] + "\r\n";
-            }
-
-            var dataCommandList = new List<ICommand>
-            {
-                new DateCommand(DateTime.Now.ToLongDateString()), //move to mockable dependency
-                new FromCommand(mailMessage.From.Address),
-                new ToCommand(mailMessage.To.ToString()),
-                new CcCommand(mailMessage.CC.ToString()),
-                new BccCommand(mailMessage.Bcc.ToString()),
-                new ReplyToCommand(mailMessage.ReplyToList.ToString()),
-                new SubjectCommand(mailMessage.Subject),
-                new CRLFCommand(),
-                new BodyCommand(mailMessage.Body),
-                new CRLFCommand(),
-                new DataStopCommand()
+                new DateDataField(DateTime.Now.ToLongDateString()), //move to mockable dependency
+                new FromDataField(mailMessage.From.Address),
+                new ToDataField(mailMessage.To.ToString()),
+                new CcDataField(mailMessage.CC.ToString()),
+                new BccDataField(mailMessage.Bcc.ToString()),
+                new ReplyToDataField(mailMessage.ReplyToList.ToString()),
+                new SubjectDataField(mailMessage.Subject),
+                new CRLFDataField(),
+                new BodyDataField(mailMessage.Body),
+                new CRLFDataField(),
+                new DataStopDataField()
             };
 
-            var dataBodyCommand = "";
+            var dataField = "";
 
-            foreach (var command in dataCommandList)
+            foreach (var field in dataFieldList)
             {
-                dataBodyCommand += command.Command + command.Argument + "\r\n";
+                dataField += field.Heading + field.Content + "\r\n";
             }
 
-            return new DataBodyCommand(dataBodyCommand);
+            return new DataBodyCommand(dataField);
         }
     }
 }
