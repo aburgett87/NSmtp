@@ -17,8 +17,8 @@ before_build:
   - nuget restore .\NSmtp.sln
 
 artifcats:
-  - **/*.nupkg
-  name: Nuget
+  - path: '**\*.nupkg'
+    name: Nuget
 
 test_script:
 - ps: >-
