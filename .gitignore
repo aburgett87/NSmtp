@@ -22,6 +22,7 @@ bin
 *.tar
 *.zip
 packages
+*.nupkg
 
 # Logs and databases #
 ######################
