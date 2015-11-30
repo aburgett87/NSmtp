@@ -40,10 +40,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandListCreator.cs" />
+    <Compile Include="Converters\AttachmentConverter.cs" />
     <Compile Include="Converters\IMailMessageConverter.cs" />
     <Compile Include="Converters\MailMessageToDataBodyCommandConverter.cs" />
     <Compile Include="Converters\MailMessageToRecipientConverter.cs" />
     <Compile Include="ICommandListCreator.cs" />
+    <Compile Include="Models\Commands\EHelloCommand.cs" />
+    <Compile Include="Models\DataFields\AttachmentDataFiled.cs" />
+    <Compile Include="Models\DataFields\IDataField.cs" />
     <Compile Include="Models\Responses\BadSequenceOfCommandsResponse.cs" />
     <Compile Include="Models\Commands\BccCommand.cs" />
     <Compile Include="Models\Commands\BodyCommand.cs" />
@@ -101,6 +105,7 @@
     <Compile Include="Enums\SslType.cs" />
     <Compile Include="StreamReaderWriter.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

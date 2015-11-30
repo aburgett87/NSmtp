@@ -18,7 +18,7 @@ namespace NSmtp
 
         public TextWriter Writer
         {
-            get { return new StreamWriter(_stream, Encoding.UTF8) { AutoFlush = true, NewLine = "\r\n" }; }
+            get { return new StreamWriter(_stream, Encoding.ASCII) { AutoFlush = true, NewLine = "\r\n" }; }
         }
     }
 }

@@ -30,8 +30,6 @@ namespace NSmtp
             commandList.AddRange(_recipientConverter.Convert(mailMessage));
             commandList.Add(new DataCommand());
             commandList.Add(_dataCommandConverter.Convert(mailMessage));
-            //commandList.Add(new CRLFCommand());
-            //commandList.Add(new DataStopCommand());
             return commandList;
         }
     }

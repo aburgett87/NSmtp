@@ -9,6 +9,13 @@ namespace NSmtp.Converters
     {
         public DataBodyCommand Convert(MailMessage mailMessage)
         {
+            var headers = "";
+
+            foreach(var key in mailMessage.Headers.AllKeys)
+            {
+                headers += key + ": " + mailMessage.Headers[key] + "\r\n";
+            }
+
             var dataCommandList = new List<ICommand>
             {
                 new DateCommand(DateTime.Now.ToLongDateString()), //move to mockable dependency
@@ -18,6 +25,7 @@ namespace NSmtp.Converters
                 new BccCommand(mailMessage.Bcc.ToString()),
                 new ReplyToCommand(mailMessage.ReplyToList.ToString()),
                 new SubjectCommand(mailMessage.Subject),
+                new CRLFCommand(),
                 new BodyCommand(mailMessage.Body),
                 new CRLFCommand(),
                 new DataStopCommand()

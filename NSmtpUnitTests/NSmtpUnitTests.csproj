@@ -63,8 +63,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttachmentConverterTest.cs" />
     <Compile Include="CommandListCreatorTest.cs" />
     <Compile Include="ConnectionEngineTest.cs" />
+    <Compile Include="MailMessageToDataBodyConverterTest.cs" />
     <Compile Include="MailMessageToRecipientConverterTests.cs" />
     <Compile Include="SmtpCommandExecutorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -78,6 +80,14 @@
       <Project>{0a031fee-6a73-4416-8ce9-03f6f3f45823}</Project>
       <Name>NSmtp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\ImageAttachment.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\TextAttachment.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
