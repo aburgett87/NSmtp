@@ -21,5 +21,13 @@ namespace NSmtp
         internal const string Subject = "SUBJECT: ";
 
         internal const string Date = "DATE: ";
+
+        internal const string MimeVersion = "MIME-Version: ";
+
+        internal const string ContentType = "Content-type: ";
+
+        internal const string AttatchmentBoundary = "attachment-boundary";
+
+        internal const string TextBoundary = "text-boundary";
     }
 }

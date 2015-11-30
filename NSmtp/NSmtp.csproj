@@ -48,9 +48,14 @@
     <Compile Include="ICommandListCreator.cs" />
     <Compile Include="Models\Commands\EHelloCommand.cs" />
     <Compile Include="Models\DataFields\AttachmentDataFiled.cs" />
+    <Compile Include="Models\DataFields\BoundaryDataField.cs" />
+    <Compile Include="Models\DataFields\BoundaryEndDataField.cs" />
+    <Compile Include="Models\DataFields\ContentTypeDataField.cs" />
     <Compile Include="Models\DataFields\CRLFDataField.cs" />
     <Compile Include="Models\DataFields\DataStopDataField.cs" />
+    <Compile Include="Models\DataFields\EmptyDataField.cs" />
     <Compile Include="Models\DataFields\IDataField.cs" />
+    <Compile Include="Models\DataFields\MimeVersionDataField.cs" />
     <Compile Include="Models\Responses\BadSequenceOfCommandsResponse.cs" />
     <Compile Include="Models\DataFields\BccDataField.cs" />
     <Compile Include="Models\DataFields\BodyDataField.cs" />

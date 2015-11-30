@@ -1,4 +1,5 @@
 ﻿using NSmtp.Models.DataFields;
+using NSmtp;
 using System;
 using System.Net.Mail;
 using System.Collections.Generic;
@@ -13,16 +14,21 @@ namespace NSmtp.Converters
         public List<AttachmentDataFiled> Convert(MailMessage mailMessage)
         {
             List<AttachmentDataFiled> attachmentList = new List<AttachmentDataFiled>();
-            foreach (var attatchement in mailMessage.Attachments)
+
+            if (mailMessage.Attachments.Count == 0)
+                return attachmentList;
+
+            foreach (var attachement in mailMessage.Attachments)
             {
                 string data = new StreamReader(
-                    new CryptoStream(attatchement.ContentStream, 
+                    new CryptoStream(attachement.ContentStream, 
                         new ToBase64Transform(), CryptoStreamMode.Read)).ReadToEnd();
-
-                string heading = attatchement.ContentType.ToString() + "\r\n";
-                heading += "Content-Transfer-Encoding: " + attatchement.TransferEncoding.ToString() + "\r\n";
-                heading += "Content-ID: " + attatchement.ContentId + "\r\n";
-                heading += "Conent-Disposition: " + attatchement.ContentDisposition.DispositionType + "; filename=" + attatchement.Name + "\r\n";
+                string heading = new BoundaryDataField(DataFieldHeadings.AttatchmentBoundary).Content + "\r\n";
+                heading += DataFieldHeadings.ContentType + attachement.ContentType.ToString() + "\r\n";
+                heading += "Content-Transfer-Encoding: " + attachement.TransferEncoding.ToString() + "\r\n";
+                heading += "Content-ID: " + attachement.ContentId + "\r\n";
+                heading += "Conent-Disposition: " + attachement.ContentDisposition.DispositionType + "; filename=" + attachement.Name + "\r\n";
+                heading += "\r\n";
                 attachmentList.Add(new AttachmentDataFiled(heading, data));
             }
             return attachmentList;
