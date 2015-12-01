@@ -17,13 +17,13 @@ namespace NSmtp.Converters
 
             if (mailMessage.Attachments.Count == 0)
                 return attachmentList;
-
+			
             foreach (var attachement in mailMessage.Attachments)
             {
-                string data = new StreamReader(
-                    new CryptoStream(attachement.ContentStream, 
-                        new ToBase64Transform(), CryptoStreamMode.Read)).ReadToEnd();
-                string heading = new BoundaryDataField(DataFieldHeadings.AttatchmentBoundary).Content + "\r\n";
+				var buffer = new byte[attachement.ContentStream.Length];
+				attachement.ContentStream.Read (buffer, 0, buffer.Length);
+				var data = System.Convert.ToBase64String (buffer, Base64FormattingOptions.InsertLineBreaks);
+				var heading = new BoundaryDataField(DataFieldHeadings.AttatchmentBoundary).Content + "\r\n";
                 heading += DataFieldHeadings.ContentType + attachement.ContentType.ToString() + "\r\n";
                 heading += "Content-Transfer-Encoding: " + attachement.TransferEncoding.ToString() + "\r\n";
                 heading += "Content-ID: " + attachement.ContentId + "\r\n";
