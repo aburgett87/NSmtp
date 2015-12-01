@@ -12,6 +12,7 @@ configuration:
 
 build:
   project: NSmtp.sln
+  publish_nuget: true
 
 before_build:
   - nuget restore .\NSmtp.sln
