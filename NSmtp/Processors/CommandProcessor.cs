@@ -28,7 +28,6 @@ namespace NSmtp.Processors
             string commandString = command.Command;
             if (!String.IsNullOrWhiteSpace(command.Argument))
                 commandString += " " + command.Argument;
-            System.Diagnostics.Debug.WriteLine(commandString);
             return commandString;
         }
     }

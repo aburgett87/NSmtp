@@ -15,9 +15,18 @@ namespace NSmtp.Parsers
                 case SmtpCommands.Quit:
                     return new List<SmtpResponseCode> { SmtpResponseCode.ClosingTransmissionChannel };
                 case SmtpCommands.Auth:
-                    return new List<SmtpResponseCode> { SmtpResponseCode.AuthenticationContinue };
+                    return new List<SmtpResponseCode>
+                    {
+                        SmtpResponseCode.AuthenticationContinue,
+                        SmtpResponseCode.AuthenticationOK
+                    };
                 default:
-                    return new List<SmtpResponseCode> { SmtpResponseCode.OK };
+                    return new List<SmtpResponseCode> 
+                    {
+                        SmtpResponseCode.OK,
+                        SmtpResponseCode.AuthenticationOK,
+                        SmtpResponseCode.AuthenticationContinue
+                    };
             }
         }
     }

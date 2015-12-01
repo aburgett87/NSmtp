@@ -23,6 +23,14 @@ namespace NSmtp.Parsers
                     return new ClosingTransmissionChannelResponse(text);
                 case SmtpResponseCode.SyntaxErrorCommandUnrecognised:
                     return new SyntaxErrorCommandUnrecognisedResponse(text);
+                case SmtpResponseCode.AuthenticationRequired:
+                    return new AutheticationRequiredResponse(text);
+                case SmtpResponseCode.AuthenticationOK:
+                    return new AutheticationOkResponse(text);
+                case SmtpResponseCode.AuthenticationContinue:
+                    return new AutheticationContinueResponse(text);
+                case SmtpResponseCode.AuthenticationFailure:
+                    return new AutheticationFailureResponse(text);
                 default:
                     throw new ArgumentOutOfRangeException("Reponse code invalid");
             }

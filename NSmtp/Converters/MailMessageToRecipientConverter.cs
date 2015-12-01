@@ -1,4 +1,5 @@
 ﻿using NSmtp.Models.Commands;
+using System;
 using System.Net.Mail;
 using System.Collections.Generic;
 
@@ -21,7 +22,11 @@ namespace NSmtp.Converters
             var recipientList = new List<RecipientCommand>();
             foreach (var recipient in collection)
             {
-                recipientList.Add(new RecipientCommand("<" + recipient.Address + ">"));
+                string recipientString = "";
+                if(!String.IsNullOrWhiteSpace(recipient.DisplayName))
+                    recipientString = recipient.DisplayName + " ";
+                recipientString += "<" + recipient.Address + ">";
+                recipientList.Add(new RecipientCommand(recipientString));
             }
 
             return recipientList;

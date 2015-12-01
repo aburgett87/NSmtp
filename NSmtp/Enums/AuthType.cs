@@ -1,9 +1,8 @@
 ﻿namespace NSmtp.Enums
 {
-    public enum SslType
+    public enum AuthType
     {
         Plain,
-        StartTls,
-        Ssl
+        Login
     }
 }

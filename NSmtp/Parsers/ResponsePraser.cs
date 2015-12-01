@@ -13,8 +13,8 @@ namespace NSmtp.Parsers
 
         public IResponse Parse(string response)
         {
-            var code = response.Substring(0, response.IndexOf(' '));
-            var text = response.Substring(response.IndexOf(' '));
+            var code = response.Substring(0, 3);
+            var text = response.Substring(4);
             return _responseCreator.Create(code, text);
         }
     }

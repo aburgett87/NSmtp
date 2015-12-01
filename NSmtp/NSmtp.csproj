@@ -45,17 +45,22 @@
     <Compile Include="Converters\MailMessageToDataBodyCommandConverter.cs" />
     <Compile Include="Converters\MailMessageToRecipientConverter.cs" />
     <Compile Include="DataFieldHeadings.cs" />
+    <Compile Include="Enums\AuthType.cs" />
     <Compile Include="ICommandListCreator.cs" />
+    <Compile Include="Models\Commands\AuthCommand.cs" />
     <Compile Include="Models\Commands\EHelloCommand.cs" />
+    <Compile Include="Models\Commands\PasswordCommand.cs" />
+    <Compile Include="Models\Commands\UsernameCommand.cs" />
     <Compile Include="Models\DataFields\AttachmentDataFiled.cs" />
     <Compile Include="Models\DataFields\BoundaryDataField.cs" />
     <Compile Include="Models\DataFields\BoundaryEndDataField.cs" />
     <Compile Include="Models\DataFields\ContentTypeDataField.cs" />
-    <Compile Include="Models\DataFields\CRLFDataField.cs" />
     <Compile Include="Models\DataFields\DataStopDataField.cs" />
     <Compile Include="Models\DataFields\EmptyDataField.cs" />
     <Compile Include="Models\DataFields\IDataField.cs" />
+    <Compile Include="Models\DataFields\MessageIdDataField.cs" />
     <Compile Include="Models\DataFields\MimeVersionDataField.cs" />
+    <Compile Include="Models\Responses\AutheticationRequiredResponse.cs" />
     <Compile Include="Models\Responses\BadSequenceOfCommandsResponse.cs" />
     <Compile Include="Models\DataFields\BccDataField.cs" />
     <Compile Include="Models\DataFields\BodyDataField.cs" />
@@ -70,6 +75,9 @@
     <Compile Include="Models\HostInfo.cs" />
     <Compile Include="Models\IMailInfo.cs" />
     <Compile Include="Models\IHostInfo.cs" />
+    <Compile Include="Models\Responses\AutheticationContinueResponse.cs" />
+    <Compile Include="Models\Responses\AutheticationOkResponse.cs" />
+    <Compile Include="Models\Responses\AutheticationFailureResponse.cs" />
     <Compile Include="Models\Responses\IResponse.cs" />
     <Compile Include="Models\Commands\MailFromCommand.cs" />
     <Compile Include="Models\MailInfo.cs" />
@@ -110,7 +118,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Processors\CommandExecutor.cs" />
     <Compile Include="Enums\SmtpResponseCode.cs" />
-    <Compile Include="Enums\SslType.cs" />
     <Compile Include="StreamReaderWriter.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -6,16 +6,22 @@ using System.Threading.Tasks;
 
 namespace NSmtp.Models.DataFields
 {
-    public class CRLFDataField : IDataField
+    public class MessageIdDataField : IDataField
     {
+        public MessageIdDataField(string messageId)
+        {
+            Content = messageId;
+        }
+
         public string Heading
         {
-            get { return String.Empty; }
+            get { return "Message-Id: "; }
         }
 
         public string Content
         {
-            get { return "\r\n"; }
+            get;
+            private set;
         }
     }
 }

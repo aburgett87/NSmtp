@@ -26,6 +26,7 @@ namespace NSmtp.Converters
                 new BccDataField(mailMessage.Bcc.ToString()),
                 new ReplyToDataField(mailMessage.ReplyToList.ToString()),
                 new SubjectDataField(mailMessage.Subject),
+                new MessageIdDataField("<" + Guid.NewGuid().ToString() + "@" + mailMessage.From.Host +">"),
                 new MimeVersionDataField("1.0"),
                 new ContentTypeDataField(@"multipart/mixed; boundary=" + DataFieldHeadings.TextBoundary),
                 new EmptyDataField()

@@ -39,7 +39,7 @@ namespace NSmtpUnitTests
             Assert.That(commandList[0].Command, Is.EqualTo("HELO"));
             Assert.That(commandList[0].Argument, Is.EqualTo("localhost"));
             Assert.That(commandList[1].Command, Is.EqualTo("MAIL FROM:"));
-            Assert.That(commandList[1].Argument, Is.EqualTo("ab@ab.com"));
+            Assert.That(commandList[1].Argument, Is.EqualTo("<ab@ab.com>"));
             Assert.That(commandList[2].Command, Is.EqualTo("RCPT TO:"));
             Assert.That(commandList[3].Command, Is.EqualTo("DATA"));
             Assert.That(commandList[4].Command, Is.EqualTo("test\r\n\r\n.\r\n"));

@@ -8,6 +8,6 @@ namespace NSmtp.Models
         int Port { get; set; }
         string Username { get; set; }
         string Password { get; set; }
-        SslType SslType { get; set; }
+        AuthType AuthType { get; set; }
     }
 }
