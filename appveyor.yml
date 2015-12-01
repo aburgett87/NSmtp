@@ -16,7 +16,7 @@ build:
 before_build:
   - nuget restore .\NSmtp.sln
 
-artifcats:
+artifacts:
   - path: NSmtp\**\*.nupkg
     name: Nuget
 
