@@ -31,7 +31,7 @@ namespace NSmtp
             if (!(String.IsNullOrWhiteSpace(_hostInfo.Username) || String.IsNullOrWhiteSpace(_hostInfo.Password)))
             {
                 commandList.Add(new EHelloCommand(_hostInfo.Host));
-                commandList.Add(new AuthCommand(_hostInfo.AuthType.ToString("G")));
+                commandList.Add(new AuthCommand(_hostInfo.AuthType.ToString("G").ToUpper()));
                 if (_hostInfo.AuthType == AuthType.Login)
                 {
                     commandList.Add(new UsernameCommand(Convert.ToBase64String(Encoding.Default.GetBytes(_hostInfo.Username))));

@@ -9,5 +9,6 @@ namespace NSmtp.Models
         string Username { get; set; }
         string Password { get; set; }
         AuthType AuthType { get; set; }
+        SslType SslType { get; set; }
     }
 }

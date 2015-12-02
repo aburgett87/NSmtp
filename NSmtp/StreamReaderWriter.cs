@@ -1,24 +1,25 @@
 ﻿using System.IO;
 using System.Text;
+using NSmtp.Utilities;
 
 namespace NSmtp
 {
     public class StreamReaderWriter : IStreamReaderWriter
     {
-        private readonly Stream _stream;
-        public StreamReaderWriter(Stream stream)
+        private readonly IStreamManager _streamManager;
+        public StreamReaderWriter(IStreamManager streamManager)
         {
-            _stream = stream;
+            _streamManager = streamManager;
         }
 
         public TextReader Reader
         {
-            get { return new StreamReader(_stream, Encoding.UTF8); }
+            get { return new StreamReader(_streamManager.Retrieve(), Encoding.UTF8); }
         }
 
         public TextWriter Writer
         {
-            get { return new StreamWriter(_stream, Encoding.ASCII) { AutoFlush = true, NewLine = "\r\n" }; }
+            get { return new StreamWriter(_streamManager.Retrieve(), Encoding.ASCII) { AutoFlush = true, NewLine = "\r\n" }; }
         }
     }
 }

@@ -2,6 +2,7 @@
 {
     public enum AuthType
     {
+        None,
         Plain,
         Login
     }

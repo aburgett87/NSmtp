@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using NSmtp.Utilities;
 using Moq;
 using NSmtp;
 using System.IO;
@@ -8,30 +9,34 @@ namespace NSmtpUnitTests
     [TestFixture]
     public class StreamReaderWriterTest
     {
-        private Mock<Stream> _stream;
+        private Mock<IStreamManager> _streamManager;
 
         [SetUp]
         public void SetUp()
         {
-            _stream = new Mock<Stream>();
+            _streamManager = new Mock<IStreamManager>();
         }
 
         [Test]
         public void CanRetrieveStreamReader()
         {
-            _stream.Setup(str => str.CanRead).Returns(true);
-            var streamReaderWriter = new StreamReaderWriter(_stream.Object);
+            var stream = new Mock<Stream>();
+            stream.Setup(str => str.CanRead).Returns(true);
+            _streamManager.Setup(str => str.Retrieve()).Returns(stream.Object);
+            var streamReaderWriter = new StreamReaderWriter(_streamManager.Object);
             var reader = streamReaderWriter.Reader;
-            _stream.Verify(str => str.CanRead, Times.Once);
+            _streamManager.Verify(str => str.Retrieve(), Times.Once);
         }
 
         [Test]
         public void CanRetrieveStreamWriter()
         {
-            _stream.Setup(str => str.CanWrite).Returns(true);
-            var streamReaderWriter = new StreamReaderWriter(_stream.Object);
-            var writer = streamReaderWriter.Writer;
-            _stream.Verify(str => str.CanWrite, Times.Once);
+            var stream = new Mock<Stream>();
+            stream.Setup(str => str.CanWrite).Returns(true);
+            _streamManager.Setup(str => str.Retrieve()).Returns(stream.Object);
+            var streamReaderWriter = new StreamReaderWriter(_streamManager.Object);
+            var reader = streamReaderWriter.Writer;
+            _streamManager.Verify(str => str.Retrieve(), Times.Once);
         }
     }
 }

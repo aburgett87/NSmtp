@@ -46,6 +46,7 @@
     <Compile Include="Converters\MailMessageToRecipientConverter.cs" />
     <Compile Include="DataFieldHeadings.cs" />
     <Compile Include="Enums\AuthType.cs" />
+    <Compile Include="Enums\SslType.cs" />
     <Compile Include="ICommandListCreator.cs" />
     <Compile Include="Models\Commands\AuthCommand.cs" />
     <Compile Include="Models\Commands\EHelloCommand.cs" />
@@ -73,14 +74,12 @@
     <Compile Include="Models\DataFields\DateDataField.cs" />
     <Compile Include="Models\DataFields\FromDataField.cs" />
     <Compile Include="Models\HostInfo.cs" />
-    <Compile Include="Models\IMailInfo.cs" />
     <Compile Include="Models\IHostInfo.cs" />
     <Compile Include="Models\Responses\AutheticationContinueResponse.cs" />
     <Compile Include="Models\Responses\AutheticationOkResponse.cs" />
     <Compile Include="Models\Responses\AutheticationFailureResponse.cs" />
     <Compile Include="Models\Responses\IResponse.cs" />
     <Compile Include="Models\Commands\MailFromCommand.cs" />
-    <Compile Include="Models\MailInfo.cs" />
     <Compile Include="Models\Commands\NoOpCommand.cs" />
     <Compile Include="Models\Responses\OkResponse.cs" />
     <Compile Include="Models\Commands\QuitCommand.cs" />
@@ -119,6 +118,10 @@
     <Compile Include="Processors\CommandExecutor.cs" />
     <Compile Include="Enums\SmtpResponseCode.cs" />
     <Compile Include="StreamReaderWriter.cs" />
+    <Compile Include="Utilities\IStreamFactory.cs" />
+    <Compile Include="Utilities\IStreamManager.cs" />
+    <Compile Include="Utilities\StreamFactory.cs" />
+    <Compile Include="Utilities\StreamManager.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
